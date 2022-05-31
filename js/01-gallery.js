@@ -31,12 +31,20 @@ function renderGalleryList(array) {
 
 renderGalleryList(galleryItems);
 
+// listEl.addEventListener('click', onImgContainerClick)
+
 document.querySelector('.gallery').onclick = (event) => {
   event.preventDefault();
+  // if (!event.target.classList.contains('gallery__item')) {
+  //   return;
+  // }
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
   basicLightbox.create(`<img src="${event.target.dataset.source}">`).show();
-  console.log(event.target);
-}
 
+
+}
 
 
 
